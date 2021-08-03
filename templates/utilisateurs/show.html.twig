@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail Utilisateur{% endblock %}
+{% block sous_header %}
+        <nav style="background-color: #e3f2fd; !important"
+            class="navbar navbar-expand-lg navbar-light">
+            <h3 class="text-dark"> <a class="btn btn-outline-dark" href="{{ path('utilisateurs_index') }}"><i class="fa fa-arrow-left"></i></a> Detail Utilisateur</h3>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                      {{ include('utilisateurs/_delete_form.html.twig') }}
+                </li>
+                <li class="nav-item">
+                   <a href="{{ path('utilisateurs_edit', {'id': utilisateur.id}) }}"><i class="fa fa-edit"></i></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ utilisateur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ utilisateur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ utilisateur.matricule }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

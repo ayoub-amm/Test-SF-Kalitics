@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+
+		<title>
+			{% block title %}Home
+			{% endblock %}
+			| Kalitics
+		</title>
+
+		<!-- Bootstrap core CSS -->
+		<link
+		href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
+
+		<!-- Custom styles for this template -->
+		<link
+		href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet"/>
+		<!-- Custom styles for this font-awesome -->
+		<link
+		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+			 .page-item.active .page-link {
+				background-color: #1d2124 !important;
+				color:#fff!important;
+				}
+				.page-link {
+					color: black !important;
+				}
+		
+		</style>
+	</head>
+	<body>
+		<div
+			class="d-flex" id="wrapper">
+			<!-- Sidebar -->
+			<div class="bg-light border-right" id="sidebar-wrapper">
+				<div class="sidebar-heading">
+					Kalitics
+				</div>
+				<div class="list-group list-group-flush">
+					<a href="{{ path('utilisateurs_index') }}" class="list-group-item list-group-item-action bg-light">
+						Utilisateurs
+					</a>
+                    <a href="{{ path('chantiers_index') }}" class="list-group-item list-group-item-action bg-light">
+						Chantiers
+					</a>
+                    <a href="{{ path('pointages_index') }}" class="list-group-item list-group-item-action bg-light">
+						Pointages
+					</a>
+				</div>
+			</div>
+			<!-- /#sidebar-wrapper -->
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+					<button class="btn btn-outline-primary" id="menu-toggle">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+	
+				</nav>
+				{% block sous_header %}{% endblock %}
+
+				<div style="margin-top: 5%" class="container-fluid"> {% block body %}{% endblock %}
+					</div>
+				</div>
+				<!-- /#page-content-wrapper -->
+			</div>
+			<!-- /#wrapper -->
+
+			<!-- Bootstrap core JavaScript -->
+			<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+			<script src="{{ asset( 'vendor/bootstrap/js/bootstrap.bundle.min.js' ) }}"></script>
+
+			<!-- Menu Toggle Script -->
+			<script>
+				$("#menu-toggle").click(function (e) {
+e.preventDefault();
+$("#wrapper").toggleClass("toggled");
+});
+			</script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome.min.js" integrity="sha512-kI12xOdWTh/nL2vIx5Yf3z/kJSmY+nvdTXP2ARhepM/YGcmo/lmRGRttI3Da8FXLDw0Y9hRAyZ5JFO3NrCvvXA==" crossorigin="anonymous"></script>
+			
+			{% block javascripts %}{% endblock %}
+		</body>
+	</html>
+

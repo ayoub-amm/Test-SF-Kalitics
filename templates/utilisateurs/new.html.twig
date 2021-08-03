@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un nouveau utilisateur{% endblock %}
+
+{% block sous_header %}
+        <nav style="background-color: #e3f2fd; !important"
+            class="navbar navbar-expand-lg navbar-light">
+            <h3 class="text-dark"> <a class="btn btn-outline-dark" href="{{ path('utilisateurs_index') }}"><i class="fa fa-arrow-left"></i></a> Un nouveau utilisateur</h3>
+           
+          </nav>
+{% endblock %}
+{% block body %}
+
+    {{ include('utilisateurs/_form.html.twig') }}
+
+{% endblock %}

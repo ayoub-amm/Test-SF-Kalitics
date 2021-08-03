@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail Chantier{% endblock %}
+{% block sous_header %}
+        <nav style="background-color: #e3f2fd; !important"
+            class="navbar navbar-expand-lg navbar-light">
+            <h3 class="text-dark"> <a class="btn btn-outline-dark" href="{{ path('chantiers_index') }}"><i class="fa fa-arrow-left"></i></a> Detail Chantier</h3>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                      {{ include('chantiers/_delete_form.html.twig') }}
+                </li>
+                <li class="nav-item">
+                   <a href="{{ path('chantiers_edit', {'id': chantier.id}) }}"><i class="fa fa-edit"></i></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Nom</th>
+                <td>{{ chantier.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ chantier.adresse }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ chantier.dateDebut ? chantier.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des chantiers{% endblock %}
+
+ {% block sous_header %}
+        <nav style="background-color: #e3f2fd; !important" class="navbar navbar-expand-lg navbar-light">
+            <h3 class="text-dark">Liste des chantiers</h3>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="btn btn-outline-dark" href="{{ path('chantiers_new') }}">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
+{% block body %}
+
+   
+    <table class="table table-striped">
+		<thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Date de debut</th>
+                <th>Nombre des personnes</th>
+                <th>Nombre d’heures</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chantier in chantiers %}
+            <tr>
+                <td>{{ chantier.nom }}</td>
+                <td>{{ chantier.adresse }}</td>
+                <td>{{ chantier.dateDebut ? chantier.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ chantier.nbr_utilisateurs }}</td>
+                <td>{{ chantier.sum_duree ? chantier.sum_duree : '0' }}</td>
+                <td>
+                <a class="btn btn-dark" href="{{ path('chantiers_show', {'id': chantier.id}) }}">
+						<i class="fa fa-eye"></i>
+					</a>  
+                    <a class="btn btn-warning" href="{{ path('chantiers_edit', {'id': chantier.id}) }}">
+						<i class="fa fa-edit"></i>
+					</a>  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+	<div class="pagination justify-content-end" style="margin:2%">
+		{{ knp_pagination_render(chantiers) }}
+	</div>
+{% endblock %}
