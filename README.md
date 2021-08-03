@@ -6,6 +6,13 @@ Test SF Kalitics
 Installation
 ----------------------------------
 
+### Environnement Technique
+
+    Symfony version : 4.4
+    PHP version : 7.4.9
+    Mysql : 5.7.24 
+
+    
 ### Composer
 
 
@@ -26,9 +33,10 @@ Puis pour générer les tables et le schéma :
 
     php bin/console doctrine:migration:migrate
 
-### demostration
+### Run Serve
 
     symfony serve
+
 
 
 
